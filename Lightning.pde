@@ -2,6 +2,10 @@ float startX;
 float startY;
 float endX;
 float endY;
+int clicks;
+int r = 255;
+int g = 0;
+int b = 255;
 
 Bolt bolt;
 
@@ -17,12 +21,14 @@ void draw(){
 }
 
 void mousePressed(){
-  startX = pmouseX;
-  startY = 0;
+  startX = mouseX;
+  startY = mouseY;
+  clicks++;
+
   
  // startX = mouseX; //the mouse location becomes
   //startY = mouseY;  //the source of the bolt
-  redraw(); //very useful function! Means "run draw() again"
+  redraw(); // run draw() again
 }
 
 //click for lightning to go straight to your cursor
@@ -32,11 +38,11 @@ void mousePressed(){
 class Bolt {
   
   void display() {
-    while(startY < pmouseY){//to bottom of screen
+    while(startY < height){//to bottom of screen
        endX = startX + int(random(-5,5)); //x-value varies
        endY = startY + 2;    //y just goes up
-     strokeWeight(2);//bolt is a little thicker than a line
-     stroke(255, 0, 255); //white line
+     strokeWeight(3);//bolt is a little thicker than a line
+     stroke(r, g, b); 
      line(startX,startY,endX,endY);//draw a tiny segment
      startX = endX;  //then x and y are moved to the 
      startY = endY;  //end of the segment and so on
@@ -50,8 +56,12 @@ class Bolt {
      line(startX,startY,endX,endY);//draw a tiny segment
      startX = endX;  //then x and y are moved to the 
      startY = endY;  //end of the segment and so on
+      }
+    
+    if(clicks%1 == 0) {
+      r = (int)random(0, 256);
+      g = (int)random(0, 256);
+      b = (int)random(0, 256);
+    }
   }
-  
-  
-}
 }
