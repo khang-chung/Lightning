@@ -41,7 +41,7 @@ class Bolt {
      startX = endX;  //then x and y are moved to the 
      startY = endY;  //end of the segment and so on
     }
-    delay(100);
+    
         while(startY < pmouseY){//to bottom of screen
        endX = startX + int(random(-4,4)); //x-value varies
        endY = startY + 3;    //y just goes up
