@@ -28,7 +28,6 @@ void mousePressed(){
   
  // startX = mouseX; //the mouse location becomes
   //startY = mouseY;  //the source of the bolt
-  redraw(); // run draw() again
 }
 
 //click for lightning to go straight to your cursor
